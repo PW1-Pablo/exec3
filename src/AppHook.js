@@ -14,7 +14,7 @@ const AppHook = () => {
             resultSub = (21 - nota) / 2
         }
 
-        setResult(<p>Sua nota na sub {sub} devera ser {resultSub}</p>)
+        setResult(<p>Sua nota na sub devera ser {resultSub}</p>)
     }
 
     return(
