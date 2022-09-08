@@ -4,17 +4,30 @@ const AppHook = () => {
     const [sub, setSub] = useState("G1")
     const [nota, setNota] = useState(0)
     const [result, setResult] = useState(" ")
+    const [resultSub, setResultSub] = useState(" ")
 
     const calcSub = () => {
+        let resultNota
         let resultSub
 
         if (sub === "G1") {
-            resultSub = 21 - (nota * 2)
+            resultNota = 21 - (nota * 2)
+            resultSub = "G1"
         } else {
-            resultSub = (21 - nota) / 2
+            resultNota = (21 - nota) / 2
+            resultSub = "G2"
         }
 
-        setResult(<p>Sua nota na sub devera ser {resultSub}</p>)
+        setResult(resultNota)
+        setResultSub(resultSub)
+    }
+
+    const showResult = () => {
+        if (result !== " "){
+            return <p>Sua nota na sub {resultSub} devera ser {result} </p>
+        }
+        
+        return null
     }
 
     return(
@@ -44,7 +57,7 @@ const AppHook = () => {
 
             <br /><br />
 
-            {result}
+            {showResult()}
 
         </div>
     )
